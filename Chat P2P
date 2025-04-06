@@ -3,6 +3,7 @@ import java.net.*;
 import java.util.Scanner;
 
  public class ChatP2P {
+ public static void main(String[] args) {
   Scanner scanner = new Scanner(System.in)
 
   System.out.print("Qual a sua porta? ");
@@ -16,10 +17,10 @@ import java.util.Scanner;
 
   new Thread(() -> iniciarServidor(minhaPorta)).start();
 
-        try {
+  try {
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
+  } catch (InterruptedException e) {
             System.out.println("Erro ao aguardar inicialização.");
-        }
+  }
 
 }
