@@ -6,13 +6,13 @@ public class ChatP2P {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Qual a sua porta?: ");
+        System.out.print("Qual a sua porta? ");
         int minhaPorta = Integer.parseInt(scanner.nextLine());
 
-        System.out.print("Qual IP deseja se conectar?: ");
+        System.out.print("Qual IP deseja se conectar? ");
         String ipPeer = scanner.nextLine();
 
-        System.out.print("Qual porta deseja se conectar?: ");
+        System.out.print("Qual porta deseja se conectar? ");
         int portaPeer = Integer.parseInt(scanner.nextLine());
 
         new Thread(() -> iniciarServidor(minhaPorta)).start();
@@ -27,3 +27,4 @@ public class ChatP2P {
         iniciarCliente(ipPeer, portaPeer, scanner);
         scanner.close();
     }
+}
