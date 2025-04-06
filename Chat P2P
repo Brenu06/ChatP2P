@@ -25,5 +25,5 @@ import java.util.Scanner;
 
   iniciarCliente(ipPeer, portaPeer, scanner);
 
-  
+  scanner.close();
 }
