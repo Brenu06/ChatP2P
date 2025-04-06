@@ -3,4 +3,5 @@ import java.net.*;
 import java.util.Scanner;
 
  public class ChatP2P {
+ Scanner scanner = new Scanner(System.in)
 }
