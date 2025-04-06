@@ -1,3 +1,19 @@
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+public class Servidor {
+    public static void main(String[] args) {
+        int porta = 5000; // porta onde o servidor ficará ouvindo
+
+        try (ServerSocket serverSocket = new ServerSocket(porta)) {
+            System.out.println("Servidor iniciado na porta: "+ porta);
+            System.out.println("Aguardando conexão do cliente");
+
+            //aceita a coneção do cliente
+            Socket socket = serverSocket.accept();
+            System.out.println("Cliente conectado!");
+
+            //Criar fluxos de entradas e saidas 
+            DataInputStream entrada = new DataInputStream(socket.getInputStream());
+            DataOutputStream saida = new DataOutputStream(socket.getOutputStream());
+            BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
