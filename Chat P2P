@@ -64,5 +64,34 @@ private static void iniciarCliente(String ipPeer, int portaPeer, Scanner scanner
             }
         }
     }
+private static void tratarPeer(Socket socket, Scanner scanner) {
+    try {
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
+        new Thread(() -> {
+            try {
+                String mensagem;
+                while ((mensagem = in.readLine()) != null) {
+                    System.out.println("\n[Peer] " + mensagem);
+                }
+            } catch (IOException e) {
+                System.out.println("Erro ao receber mensagens.");
+            }
+        }).start();
+
+        while (true) {
+            String mensagem = scanner.nextLine();
+            if (mensagem.equalsIgnoreCase("sair")) {
+                System.out.println("Encerrando conexão...");
+                socket.close();
+                break;
+            }
+            out.println(mensagem);
+        }
+    } catch (IOException e) {
+        System.out.println("Erro na comunicação.");
+        e.printStackTrace();
+    }
+}
 
