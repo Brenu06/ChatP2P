@@ -53,7 +53,7 @@ private static void iniciarCliente(String ipPeer, int portaPeer, Scanner scanner
                 tratarPeer(socket, scanner);
  break;
             } catch (IOException e) {
-                System.out.println("Falha ao conectar. Tentando novamente em 5 segundos...");
+                System.out.println("Falha ao se conectar. Tentando novamente em 5 segundos...");
                 try {
                     Thread.sleep(5000);
                 } catch (InterruptedException ex) {
