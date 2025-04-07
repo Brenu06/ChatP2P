@@ -42,4 +42,8 @@ while (true) {
                 System.out.println("Conexão recebida de: " + socket.getInetAddress());
 new Thread(() -> tratarPeer(socket)).start();
             }
-       
+         } catch (IOException e) {
+            System.out.println("Erro no servidor!");
+            e.printStackTrace();
+        }
+    }
