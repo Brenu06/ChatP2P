@@ -40,4 +40,6 @@ private static void iniciarServidor(int minhaPorta) {
 while (true) {
                 Socket socket = serverSocket.accept();
                 System.out.println("Conexão recebida de: " + socket.getInetAddress());
+new Thread(() -> tratarPeer(socket)).start();
+            }
        
