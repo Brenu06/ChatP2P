@@ -46,4 +46,10 @@ new Thread(() -> tratarPeer(socket)).start();
             System.out.println("Erro no servidor!");
             e.printStackTrace();
         }
-    }
+    } 
+private static void iniciarCliente(String ipPeer, int portaPeer, Scanner scanner) {
+        while (true) {
+            try {
+                Socket socket = new Socket(ipPeer, portaPeer);
+                System.out.println("Conectado ao peer: " + ipPeer + " na porta: " + portaPeer);
+                tratarPeer(socket, scanner);
