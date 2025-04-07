@@ -29,8 +29,6 @@ scanner.close();
     }
 
 
-
-  scanner.close();
 }
 
 private static void iniciarServidor(int minhaPorta) {
