@@ -53,3 +53,16 @@ private static void iniciarCliente(String ipPeer, int portaPeer, Scanner scanner
                 Socket socket = new Socket(ipPeer, portaPeer);
                 System.out.println("Conectado ao peer: " + ipPeer + " na porta: " + portaPeer);
                 tratarPeer(socket, scanner);
+ break;
+            } catch (IOException e) {
+                System.out.println("Falha ao conectar. Tentando novamente em 5 segundos...");
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException ex) {
+                    System.out.println("Erro ao esperar para reconectar.");
+                }
+            }
+        }
+    }
+
+
