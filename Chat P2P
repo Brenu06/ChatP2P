@@ -29,5 +29,11 @@ scanner.close();
     }
 
 
+
   scanner.close();
 }
+
+private static void iniciarServidor(int minhaPorta) {
+        try (ServerSocket serverSocket = new ServerSocket(minhaPorta)) {
+            System.out.println("Servidor aguardando conexões na porta: " + minhaPorta);
+
