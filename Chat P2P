@@ -37,3 +37,7 @@ private static void iniciarServidor(int minhaPorta) {
         try (ServerSocket serverSocket = new ServerSocket(minhaPorta)) {
             System.out.println("Servidor aguardando conexões na porta: " + minhaPorta);
 
+while (true) {
+                Socket socket = serverSocket.accept();
+                System.out.println("Conexão recebida de: " + socket.getInetAddress());
+       
